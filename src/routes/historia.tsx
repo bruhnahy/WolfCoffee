@@ -55,7 +55,7 @@ function Historia() {
       <PageHeader
         eyebrow="✦ COMO TUDO COMEÇOU ✦"
         title="NOSSA HISTÓRIA"
-        description="História fictícia, criada para dar alma a este projeto — mas contada com o carinho de quem realmente gosta de café."
+        description="A Wolf Coffee nasceu da união entre criatividade, tecnologia e uma paixão por experiências acolhedoras. Uma cafeteria fictícia criada para transformar uma ideia acadêmica em um projeto completo, funcional e cheio de personalidade. Entre cafés, noites de estudo e muitas ideias, nasceu a Wolf Coffee — um cantinho criado para quem acredita que uma boa xícara de café pode transformar até os dias mais comuns."
       />
 
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_0.6fr]">
