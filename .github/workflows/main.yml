@@ -1,0 +1,33 @@
+name: Deploy WolfCoffee no Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar codigo do GitHub
+        uses: actions/checkout@v4
+
+      - name: Login no Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Login no Azure Container Registry
+        run: az acr login --name acrwolfcoffee
+
+      - name: Criar e enviar imagem Docker
+        run: |
+          docker build -t acrwolfcoffee.azurecr.io/wolfcoffee:latest .
+          docker push acrwolfcoffee.azurecr.io/wolfcoffee:latest
+
+      - name: Reiniciar Web App
+        run: az webapp restart --name wolfcoffee --resource-group quarteto_fantastico
+
+      - name: Logout do Azure
+        run: az logout
